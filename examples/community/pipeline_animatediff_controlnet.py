@@ -71,7 +71,7 @@ EXAMPLE_DOC_STRING = """
         >>> pipe.enable_vae_slicing()
 
         >>> conditioning_frames = []
-        >>> for i in range(1, 16 + 1):
+        >>> for i in range(1, 48 + 1):
         ...     conditioning_frames.append(Image.open(f"frame_{i}.png"))
 
         >>> prompt = "astronaut in space, dancing"
@@ -743,7 +743,7 @@ class AnimateDiffControlNetPipeline(
     def __call__(
         self,
         prompt: Union[str, List[str]] = None,
-        num_frames: Optional[int] = 16,
+        num_frames: Optional[int] = 48,
         height: Optional[int] = None,
         width: Optional[int] = None,
         num_inference_steps: int = 50,
@@ -780,9 +780,9 @@ class AnimateDiffControlNetPipeline(
                 The height in pixels of the generated video.
             width (`int`, *optional*, defaults to `self.unet.config.sample_size * self.vae_scale_factor`):
                 The width in pixels of the generated video.
-            num_frames (`int`, *optional*, defaults to 16):
-                The number of video frames that are generated. Defaults to 16 frames which at 8 frames per seconds
-                amounts to 2 seconds of video.
+            num_frames (`int`, *optional*, defaults to 48):
+                The number of video frames that are generated. Defaults to 48 frames which at 8 frames per seconds
+                amounts to 6 seconds of video.
             num_inference_steps (`int`, *optional*, defaults to 50):
                 The number of denoising steps. More denoising steps usually lead to a higher quality videos at the
                 expense of slower inference.
